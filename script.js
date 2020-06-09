@@ -3,35 +3,13 @@
 
 
 
+
+
 //
 // MICHAEL'S CODE:
 //
 
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-
-    return e(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
-  }
-}
-
-const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
-
-var concertDate = new Date(2021, 11, 27);
+var concertDate = new Date(2020, 11, 27);
 function getCountdown(today) {
     var diff = Math.abs(concertDate - new Date(today));
     var countdownDate = new Date(diff);
@@ -78,13 +56,15 @@ class NewYorkConcert extends React.Component {
                 <p><b>New York</b></p>
                 <p id="countdownTitle">Countdown to our next show:</p>
                 <p id="countdown">{getCountdown(this.props.date)}</p>
-                <p className="w3-opacity">Fri 27 Nov 2021</p>
+                <p className="w3-opacity">Fri 27 Nov 2020</p>
                 <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                 <button className="w3-button w3-black w3-margin-bottom" onClick={() => document.getElementById('ticketModal').style.display='block'}>Buy Tickets</button>
             </div>
         );
     }
 }
+
+// TODO: add buy number of tickets textbox, then show how it doesn't work with regular HTML/JS
     
 
 const newYorkContainer = document.querySelector("#insertFromReact");
