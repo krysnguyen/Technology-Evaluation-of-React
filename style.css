@@ -1,4 +1,8 @@
-#countdown {
+#countdownTitle {
     font-size: 1.15em;
     text-transform: uppercase;
+}
+
+#countdown {
+    font-size: 1.15em;
 }

@@ -45,7 +45,7 @@ function dhm(t){
         cm = 60 * 1000,
         d = Math.floor(t / cd),
         h = Math.floor( (t - d * cd) / ch),
-        m = Math.round( (t - d * cd - h * ch) / cm),
+        m = Math.floor( (t - d * cd - h * ch) / cm),
         s = Math.round( (t - d * cd - h * ch - m * cm) / 1000),
         pad = function(n){ return n < 10 ? '0' + n : n; };
   if (s === 60) {
@@ -60,6 +60,7 @@ function dhm(t){
     d++;
     h = 0;
   }
+  return (d + " days, " + h + " hour(s), " + m + " minute(s), " + s + " seconds.");
   return [d, pad(h), pad(m), pad(s)].join(':');
 }
 
@@ -75,7 +76,8 @@ class NewYorkConcert extends React.Component {
         return (
             <div>
                 <p><b>New York</b></p>
-                <p id="countdown">Countdown to our next show: {getCountdown(this.props.date)}</p>
+                <p id="countdownTitle">Countdown to our next show:</p>
+                <p id="countdown">{getCountdown(this.props.date)}</p>
                 <p className="w3-opacity">Fri 27 Nov 2021</p>
                 <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                 <button className="w3-button w3-black w3-margin-bottom" onClick={() => document.getElementById('ticketModal').style.display='block'}>Buy Tickets</button>
