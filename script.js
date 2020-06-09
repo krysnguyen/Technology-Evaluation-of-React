@@ -12,9 +12,9 @@
 
 /*
 NOTE: to change HTML to JSX:
-    change 'class' to 'className'
-    for onclick functions refer to: https://stackoverflow.com/questions/35870976/reactjs-expected-onclick-listener-to-be-a-function-instead-got-type-string
-    also, note that the div below has no siblings, because all HTML in a JSX variable must be wrapped in one tag
+    - change 'class' to 'className'
+    - for onclick functions refer to: https://stackoverflow.com/questions/35870976/reactjs-expected-onclick-listener-to-be-a-function-instead-got-type-string
+    - also, note that the div below has no siblings, because all HTML in a JSX variable must be wrapped in one tag
 */
 class NewYorkConcert extends React.Component {
     render() {
