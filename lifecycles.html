@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>State and Lifecycles</title>
+
+    <link type="stylesheet" href="styles/a11y-dark.css">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <h1>React State & Lifecyles</h1>
+    
+    <p>State and lifecycles are important concepts in the React library.</p>
+    <p>This page will breifly explain the concepts and have an interactive demo along with a code snipet for them.</p>
+
+    <p>
+        In React, we have components which can be anything like a textbox, button or a graph visual. 
+        Components can be stateful by having a JavaScript object called <code>state</code>. 
+        <dfn>This state object stores dynamic data and determines the behavior of the component.</dfn> 
+        State is private to the component and what that means is that it can only be controlled by
+        the component itself. Another important detail about state is that it is <bold>immutable.</bold>
+    </p>
+
+    <h3>State Code Example 1</h3>
+    <pre>
+        <code>
+            class Greeting extends React.Component {
+                constructor(props) {
+                 super(props);
+                   // Define your state object here
+                   this.state = {
+                     name: ‘Jane Doe’
+                   }
+                 }
+                 render(){
+                   return &lt;h1&gt; Hello { this.state.name } &lt;\h1&gt;;
+                 }
+              }
+        </code>
+    </pre>
+    
+    <div id="state_demo"></div>
+    
+    
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="lifecycles.js"></script>
+
+  </body>
+</html>
