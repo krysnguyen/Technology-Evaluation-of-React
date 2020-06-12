@@ -15,32 +15,54 @@
     <p>This page will breifly explain the concepts and have an interactive demo along with a code snipet for them.</p>
 
     <p>
-        In React, we have components which can be anything like a textbox, button or a graph visual. 
-        Components can be stateful by having a JavaScript object called <code>state</code>. 
-        <dfn>This state object stores dynamic data and determines the behavior of the component.</dfn> 
-        State is private to the component and what that means is that it can only be controlled by
-        the component itself. Another important detail about state is that it is <bold>immutable.</bold>
+        In React, we have components which can be anything like a textbox, button or a graph visual.<br> 
+        Components can be stateful by having a JavaScript object called <code>state</code>.<br>
+        <dfn>This state object stores dynamic data and determines the behavior of the component.</dfn><br>
+        State is private to the component and what that means is that it can only be controlled by<br>
+        the component itself. Another important detail about state is that it is <bold>immutable.</bold><br>
     </p>
 
     <h3>State Code Example 1</h3>
     <pre>
         <code>
-            class Greeting extends React.Component {
-                constructor(props) {
-                 super(props);
-                   // Define your state object here
-                   this.state = {
-                     name: ‘Jane Doe’
-                   }
-                 }
-                 render(){
-                   return &lt;h1&gt; Hello { this.state.name } &lt;\h1&gt;;
-                 }
-              }
+            
+          class Counter extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    counter: 0 
+                }
+                this.increment = () => this.setState({counter: this.state.counter + 1});
+                this.decrement = () => this.setState({counter: this.state.counter - 1});
+            }
+
+            render() {
+                console.log('Render');
+                return (
+                    &lt;div&gt;
+                        &lt;button onClick={this.increment}>Increment&lt;/button&gt;
+                        &lt;button onClick={this.decrement}>Decrement&lt;/button&gt;
+                        &lt;div className="counter"&gt;
+                            Counter: {this.state.counter}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                )
+            }
+          }
         </code>
     </pre>
-    
+    <h3>Try me:</h3>
+    <br>
     <div id="state_demo"></div>
+    <br>
+    <p>Example 1 is a simple <code>Counter</code> component which has two buttons that increment or decrement the counter value.<br>
+      We modify that value using state. We initialize the state in the constructor as well has define the methods <code>increment</code><br>
+      and <code>decrement</code>. The methods will get the current state, add/subtract 1 then <code>setState</code> to set the new state.<br>
+      Notice how we can't directly change the state by doing <code>this.state.counter = this.state.counter - 1</code>.<br>
+      That is because state is an immutable object. 
+    </p>
+    
+    
     
     
 
@@ -49,8 +71,11 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
+
     <!-- Load our React component. -->
-    <script src="lifecycles.js"></script>
+    <script type="text/babel" src="lifecycles.js" charset="utf-8"></script>
 
   </body>
 </html>
