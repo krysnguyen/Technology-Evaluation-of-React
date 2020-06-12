@@ -34,7 +34,7 @@ function regularHTML(currentDate) {
     return (
         `<p><b>Paris</b></p>
         <p class="countdownTitle">Countdown to this show:</p>
-        <p id="reg-countdown" class="countdown">${getCountdown(new Date(2020, 11, 28), currentDate)}</p>
+        <p id="reg-countdown" class="countdown">`+`${getCountdown(new Date(2020, 11, 28), currentDate)}`+`</p>
         <p class="w3-opacity">Sat 28 Nov 2020</p>
         <input type="number" class="ticket-form"></input>
         <p class="ticket-form-title">Number of tickets:</p>
