@@ -1,8 +1,13 @@
-#countdownTitle {
+.countdownTitle {
     font-size: 1.15em;
     text-transform: uppercase;
 }
 
-#countdown {
+.countdown {
     font-size: 1.15em;
+}
+
+.ticket-form {
+    width: 4em;
+    float: right;
 }

@@ -21,34 +21,62 @@ class NewYorkConcert extends React.Component {
         return (
             <div>
                 <p><b>New York</b></p>
-                <p id="countdownTitle">Countdown to our next show:</p>
-                <p id="countdown">{getCountdown(this.props.date)}</p>
+                <p className="countdownTitle">Countdown to this show:</p>
+                <p className="countdown">{getCountdown(new Date(2020, 11, 27), this.props.date)}</p>
                 <p className="w3-opacity">Fri 27 Nov 2020</p>
-                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                <input type="number" className="ticket-form"></input>
+                <p className="ticket-form-title">Number of tickets:</p>
                 <button className="w3-button w3-black w3-margin-bottom" onClick={() => document.getElementById('ticketModal').style.display='block'}>Buy Tickets</button>
             </div>
         );
     }
 }
 
-// TODO: add buy number of tickets textbox, then show how it doesn't work with regular HTML/JS
-    
+function reactJSX(currentDate) {
+    return (
+        <div>
+            <p><b>New York</b></p>
+            <p className="countdownTitle">Countdown to this show:</p>
+            <p className="countdown">{getCountdown(new Date(2020, 11, 27), currentDate)}</p>
+            <p className="w3-opacity">Fri 27 Nov 2020</p>
+            <input type="number" className="ticket-form"></input>
+            <p className="ticket-form-title">Number of tickets:</p>
+            <button className="w3-button w3-black w3-margin-bottom" onClick={() => document.getElementById('ticketModal').style.display='block'}>Buy Tickets</button>
+        </div>
+    )
+}
 
+function regularHTML(currentDate) {
+    return (
+        `<p><b>Paris</b></p>
+        <p class="countdownTitle">Countdown to this show:</p>
+        <p id="reg-countdown" class="countdown">${getCountdown(new Date(2020, 11, 28), currentDate)}</p>
+        <p class="w3-opacity">Sat 28 Nov 2020</p>
+        <input type="number" class="ticket-form"></input>
+        <p class="ticket-form-title">Number of tickets:</p>
+        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>`
+    );
+}
+    
 const newYorkContainer = document.querySelector("#insertFromReact");
+const parisContainer = document.querySelector("#insertRegHTML");
 ReactDOM.render(<NewYorkConcert date={new Date()}/>, newYorkContainer);
+parisContainer.innerHTML = regularHTML(new Date());
+
 setInterval(
     function() {
-        ReactDOM.render(<NewYorkConcert date={new Date()}/>, newYorkContainer);
+        ReactDOM.render(reactJSX(new Date()), newYorkContainer);
+        parisContainer.innerHTML = regularHTML(new Date());
     },
     1000
 );
+
 
 //
 // helper functions:
 //
 
-function getCountdown(today) {
-    var concertDate = new Date(2020, 11, 27);
+function getCountdown(concertDate, today) {
     var diff = Math.abs(concertDate - new Date(today));
     var countdownDate = new Date(diff);
     return dhm(countdownDate);
