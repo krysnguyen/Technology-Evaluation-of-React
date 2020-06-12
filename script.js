@@ -16,22 +16,6 @@ NOTE: to change HTML to JSX:
     - for onclick functions refer to: https://stackoverflow.com/questions/35870976/reactjs-expected-onclick-listener-to-be-a-function-instead-got-type-string
     - also, note that the div below has no siblings, because all HTML in a JSX variable must be wrapped in one tag
 */
-class NewYorkConcert extends React.Component {
-    render() {
-        return (
-            <div>
-                <p><b>New York</b></p>
-                <p className="countdownTitle">Countdown to this show:</p>
-                <p className="countdown">{getCountdown(new Date(2020, 11, 27), this.props.date)}</p>
-                <p className="w3-opacity">Fri 27 Nov 2020</p>
-                <input type="number" className="ticket-form"></input>
-                <p className="ticket-form-title">Number of tickets:</p>
-                <button className="w3-button w3-black w3-margin-bottom" onClick={() => document.getElementById('ticketModal').style.display='block'}>Buy Tickets</button>
-            </div>
-        );
-    }
-}
-
 function reactJSX(currentDate) {
     return (
         <div>
@@ -60,7 +44,7 @@ function regularHTML(currentDate) {
     
 const newYorkContainer = document.querySelector("#insertFromReact");
 const parisContainer = document.querySelector("#insertRegHTML");
-ReactDOM.render(<NewYorkConcert date={new Date()}/>, newYorkContainer);
+ReactDOM.render(reactJSX(new Date()), newYorkContainer);
 parisContainer.innerHTML = regularHTML(new Date());
 
 setInterval(
