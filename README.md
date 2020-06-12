@@ -1,8 +1,8 @@
-##Virtual DOM demo notes:
+## Virtual DOM demo notes:
 HTML/CSS template from: https://www.w3schools.com/w3css/w3css_templates.asp
 (All JavaScript and some of the HTML/CSS are original.) 
 
-##Other stuff (remove later)
+## Other stuff (remove later)
 
 To run locally you'll probably need to set up a local testing server, it's really easy though:
 
