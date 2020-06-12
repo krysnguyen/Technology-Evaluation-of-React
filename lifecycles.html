@@ -3,10 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>State and Lifecycles</title>
-
-    <link type="stylesheet" href="styles/a11y-dark.css">
-    <script src="highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
     <h1>React State & Lifecyles</h1>
@@ -23,34 +19,7 @@
     </p>
 
     <h3>State Code Example 1</h3>
-    <pre>
-        <code>
-            
-          class Counter extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    counter: 0 
-                }
-                this.increment = () => this.setState({counter: this.state.counter + 1});
-                this.decrement = () => this.setState({counter: this.state.counter - 1});
-            }
-
-            render() {
-                console.log('Render');
-                return (
-                    &lt;div&gt;
-                        &lt;button onClick={this.increment}>Increment&lt;/button&gt;
-                        &lt;button onClick={this.decrement}>Decrement&lt;/button&gt;
-                        &lt;div className="counter"&gt;
-                            Counter: {this.state.counter}
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                )
-            }
-          }
-        </code>
-    </pre>
+    <div id="code_1"></div>
     <h3>Try me:</h3>
     <br>
     <div id="state_demo"></div>
@@ -61,6 +30,9 @@
       Notice how we can't directly change the state by doing <code>this.state.counter = this.state.counter - 1</code>.<br>
       That is because state is an immutable object. 
     </p>
+    <br>
+
+    
     
     
     
@@ -75,7 +47,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
 
     <!-- Load our React component. -->
-    <script type="text/babel" src="lifecycles.js" charset="utf-8"></script>
-
+    <script type="text/babel" src="./scripts/code.js" charset="utf-8"></script>
+    <script type="text/babel" src="./scripts/counter.js" charset="utf-8"></script>
   </body>
 </html>
