@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>More Components</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	<style>
+		#container {
+			padding: 50px;
+			background-color: #FFF;
+		}
+	</style>
+</head>
+<body>
+<h1> Color Card Components </h1>
+
+<p> 
+	This page is a simple demonstration of how React Components can be used. <br>
+	React components are reusable chunks of JavaScript that output (via JSX) HTML elements. 
+</p>
+
+<p>
+	Building apps with a very complex UI requires a simple solution to overcoming these challenges. React tries to solve this by making an app's visual pieces self-contained and reuseable. <br>
+
+	In the example below are simple colour palette cards, you can find these cards at a home improvement store if you wanted to pick out a paint colour. To recreate these cards with components we need to determine: 
+	<ol>
+		<li>Major visual elements</li>
+		<li>What each component will look like</li>
+	</ol> 
+	After breaking down the cards, they are now composed of 2 componets. The colour square and the white rectangle label with the RGB colour inside of it.  <br>
+
+	Both of these components will live inside their parent component. The component hierarchy will look like this:
+	<ul>
+		<li>(Parent) Card </li>
+		<ul>
+			<li>(Children) Colour square</li>
+			<li>(Children) Label</li>
+		</ul>
+	</ul>
+
+	So we will have 3 components total. Because of this hierarchy we can pass the colour to the Label and to the background colour of the square as seen in the code below.<br>
+
+	To generalize the result of components, each components render() function returns some HTML to another components render function. The HTML accumulates from each components render call until all the HTML is pushed to the parent component and it is displayed to the DOM.<br>
+	I hope you found this demo useful for understanding how components could be used.
+
+</p>
+	
+
+<!-- Color Cards  -->
+<div id="container"></div>
+<script type="text/babel">
+
+	class Square extends React.Component {
+		render() {
+			var squareStyle = {
+				height: 150,
+				backgroundColor: this.props.color
+			};
+			return(
+				<div style={squareStyle}>
+				</div>
+			);
+		}
+	}
+	class Label extends React.Component {
+		render(){
+			var labelStyle = {
+				fontFamily:"sans-serif",
+				fontWeight:"bold",
+				padding:14,
+				margin:0
+			};
+			return(
+				<p style={labelStyle}>
+					{this.props.color}
+				</p>
+			);
+		}		
+	}
+	class Card extends React.Component {
+		render(){
+			var cardStyle = {
+				height: 200,
+				width: 150,
+				padding: 0,
+				margin: 50,
+				display: "inline-block",
+				backgroundColor: "#FFF",
+				boxShadow: "0px 0px 15px #666" 
+			};
+			return(
+				<div style={cardStyle}>
+					<Square color={this.props.color}/>
+					<Label color={this.props.color}/>
+				</div>
+			);
+		}		
+	}
+
+	ReactDOM.render(
+		<div>
+			<Card color="#FF605F"/>
+			<Card color="#FFD52E"/>
+			<Card color="#49DD8E"/>
+			<Card color="#AE99FF"/>
+		
+		</div>,
+		document.querySelector("#container")
+	);
+</script>
+</body>
+</html>
