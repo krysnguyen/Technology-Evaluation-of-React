@@ -17,9 +17,9 @@ class Counter extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <Button variant="outlined" color="primary" onClick={this.increment}>Increment</Button>
-                <Button variant="outlined" color="secondary" onClick={this.decrement}>Decrement</Button>
-                <div className="counter">
+                <Button variant="outlined" color="primary" onClick={this.increment} style={{padding: 10, margin: 5}}>Increment</Button>
+                <Button variant="outlined" color="secondary" onClick={this.decrement} style={{padding: 10, margin: 5}}>Decrement</Button>
+                <div className="counter" style={{margin: 5}}>
                   <br></br>
                     Counter: {this.state.counter}
                 </div>

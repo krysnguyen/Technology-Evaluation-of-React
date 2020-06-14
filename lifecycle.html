@@ -4,7 +4,42 @@
     <meta charset="UTF-8" />
     <title>State</title>
   </head>
-    <body>
-        <h1>Lifecycles</h1>
+    <body style="background-color: #FAEBD7;">
+        <div>
+            <div style="display: grid; justify-content: center; align-items: center;">
+                <h1>Lifecycles</h1>
+                <p>
+                    React components behave much like a human being or any living creature. <br>
+                    They have a lifecycle that they go throw.
+                </p>
+                <br>
+                <ul>
+                    <li><b>Mounting</b> - the component is born</li>
+                    <li><b>Update</b> - the component is growing</li>
+                    <li><b>Unmount</b> - the component dies</li>
+                </ul>
+                <br>
+                <div id="lifecyle_description"></div>
+
+                <h2>Common Lifecycle methods: </h2>
+                <div id="lifecycle_methods"></div>
+                
+                <a href="./state.html">Learn about React State</a> 
+            </div>
+        </div>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.production.min.js" crossorigin></script>
+        
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
+        
+        <!-- Load our React component. -->
+    
+        <script type="text/babel" src="./scripts/lifecycleDescription.js" charset="utf-8"></script>
+        <script type="text/babel" src="./scripts/lifecycleMethods.js" charset="utf-8"></script>
     </body>
 </html>
