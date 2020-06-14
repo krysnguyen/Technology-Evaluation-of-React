@@ -1,5 +1,5 @@
 const { Component } = React;
-
+const { Button } = MaterialUI;
 class Counter extends Component {
     constructor(props) {
         super(props);
@@ -12,9 +12,13 @@ class Counter extends Component {
   
     render() {
         return (
-            <div>
-                <button onClick={this.increment}>Increment</button>
-                <button onClick={this.decrement}>Decrement</button>
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                <Button variant="outlined" color="primary" onClick={this.increment}>Increment</Button>
+                <Button variant="outlined" color="secondary" onClick={this.decrement}>Decrement</Button>
                 <div className="counter">
                   <br></br>
                     Counter: {this.state.counter}
