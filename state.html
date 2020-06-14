@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>State</title>
+  </head>
+  <body style="background-color: #FAEBD7;">
+    <div>
+      <div style="display: grid; justify-content: center; align-items: center;">
+        <h1>State</h1>
+        <p>State and lifecycles are important concepts in the React library.</p>
+        <p>This page will breifly explain the concepts of state and have an interactive demo along with a code snipet for them.</p>
+  
+        <p>
+            In React, we have components which can be anything like a textbox, button or a graph visual.<br> 
+            Components can be stateful by having a JavaScript object called <code>state</code>.<br>
+            <dfn>This state object stores dynamic data and determines the behavior of the component.</dfn><br>
+            State is private to the component and what that means is that it can only be controlled by<br>
+            the component itself. Another important detail about state is that it is <bold>immutable.</bold><br>
+        </p>
+        <h3>State Code Example 1</h3>
+        <div id="code_1"></div>
+        <h3>Try me:</h3>
+        <br>
+        <div id="state_demo"></div>
+        <br>
+        <p>Example 1 is a simple <code>Counter</code> component which has two buttons that increment or decrement the counter value.<br>
+          We modify that value using state. We initialize the state in the constructor as well has define the methods <code>increment</code><br>
+          and <code>decrement</code>. The methods will get the current state, add/subtract 1 then <code>setState</code> to set the new state.<br>
+          Notice how we can't directly change the state by doing <code>this.state.counter = this.state.counter - 1</code>.<br>
+          That is because state is an immutable object. 
+        </p>
+        <br>
+        <p>The following is also using react component state to update a number that is used as <br>
+          an index for an array of color values to update the background color.</p>
+        <div id="slider"></div>
+        <br>
+        <a href="./lifecycle.html">Learn about React Lifecycles</a> 
+      </div>
+    </div>
+    
+    
+    
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.production.min.js" crossorigin></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  
+    
+    <!-- Load our React component. -->
+  
+    <script type="text/babel" src="./scripts/code.js" charset="utf-8"></script>
+    <script type="text/babel" src="./scripts/counter.js" charset="utf-8"></script>
+    <script type="text/babel" src="./scripts/slider.js" charset="utf-8"></script>
+  </body>
+</html>
