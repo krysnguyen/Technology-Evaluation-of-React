@@ -1,6 +1,6 @@
 'use strict';
 const { Component } = React;
-const { Button } = MaterialUI;
+const { Button, LinearProgress } = MaterialUI;
 
 function Mounting() {
     return (
@@ -48,6 +48,7 @@ class Description extends Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         if (this.props.selection == 0) {
             return <Mounting />;
@@ -60,8 +61,6 @@ class Description extends Component {
 
 }
 
-
-
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -69,10 +68,17 @@ class Main extends Component {
             selection: 0,
             first: 'primary',
             second: 'secondary',
-            third: 'secondary'
+            third: 'secondary',
+            loading: true
         }
     }
+
+    componentDidMount() {
+        demoAsyncCall().then(() => this.setState({ loading: false }));
+    }
+    
     render() {
+        if (this.state.loading) return <LinearProgress />
         return (
             <div>
                 <Button onClick={()=> this.setState({selection: 0, first: 'primary', second: 'secondary', third: 'secondary'})} 
@@ -97,6 +103,10 @@ class Main extends Component {
             </div>
         )
     }
+}
+
+function demoAsyncCall() {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
 }
 
 const domContainer = document.querySelector('#lifecyle_description');

@@ -1,6 +1,6 @@
 'use strict';
 const { Component } = React;
-const { Button } = MaterialUI;
+const { Button, LinearProgress } = MaterialUI;
 
 function ComponentDidMount() {
     return (
@@ -56,6 +56,24 @@ class Description extends Component {
 
 }
 
+class Child extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        alert('Description component did mount');
+    }
+
+    componentWillUnmount() {
+        alert('Description component will unmount');
+    }
+
+    render() {
+        return <h1>Test</h1>;
+    }
+}
+
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -63,10 +81,25 @@ class Main extends Component {
             selection: 0,
             first: 'primary',
             second: 'secondary',
-            third: 'secondary'
+            third: 'secondary',
+            loading: true
+        }
+        this.doUpdate = () => this.setState({selection: 2 - this.state.selection})
+    }
+
+    componentDidMount() {
+        demoAsyncCall().then(() => this.setState({ loading: false }));
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        // Typical usage (don't forget to compare props):
+        if (this.state.selection !== prevState.selection) {
+          alert('Main component did update');
         }
     }
+
     render() {
+        if (this.state.loading) return <LinearProgress />
         return (
             <div>
                 <Button onClick={()=> this.setState({selection: 0, first: 'primary', second: 'secondary', third: 'secondary'})} 
@@ -88,9 +121,15 @@ class Main extends Component {
                     Component Will Unmount
                 </Button>
                 <Description selection={this.state.selection} />
+                <Button onClick={() => this.doUpdate()}>Force Update</Button>
+                <Child />
             </div>
         )
     }
+}
+
+function demoAsyncCall() {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
 }
 
 const domContainer = document.querySelector('#lifecycle_methods');
