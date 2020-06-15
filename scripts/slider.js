@@ -19,7 +19,7 @@ class ColorSlider extends Component {
                 </div>
                 
                 <Box component="span" m={1}>
-                        <Slider value={this.state.value} onChange={this.handleChange} aria-labelledby="continuous-slider" />
+                    <Slider value={this.state.value} onChange={this.handleChange} aria-labelledby="continuous-slider" />
                 </Box>
 
             </div>

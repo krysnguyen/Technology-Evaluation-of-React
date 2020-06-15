@@ -38,11 +38,7 @@ class Snippet extends Component {
     }
     render() {
         return (
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}>
+            <div>
                 <Button onClick={()=> this.setState({codeBlock: codeBlock2})}>Text</Button>
                 <pre>
                     <code>
