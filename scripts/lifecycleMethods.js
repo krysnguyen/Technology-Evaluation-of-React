@@ -40,7 +40,7 @@ function ComponentWillUnmount() {
     )
 }
 
-class Description extends Component {
+class Method extends Component {
     constructor(props) {
         super(props);
     }
@@ -120,7 +120,7 @@ class Main extends Component {
                 style={{padding: 10, margin: 5}}>
                     Component Will Unmount
                 </Button>
-                <Description selection={this.state.selection} />
+                <Method selection={this.state.selection} />
                 <Button onClick={() => this.doUpdate()}>Force Update</Button>
                 <Child />
             </div>
