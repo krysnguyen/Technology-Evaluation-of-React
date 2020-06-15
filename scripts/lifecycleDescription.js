@@ -40,6 +40,12 @@ function Unmounting() {
     return (
         <div>
             <h1>Unmounting</h1>
+            <p>
+                This method is called when a component is being removed from the DOM:
+            </p>
+            <ul>
+                <li>componentWillUnmount()</li>
+            </ul>
         </div>
     )
 }
@@ -76,7 +82,7 @@ class Main extends Component {
     componentDidMount() {
         demoAsyncCall().then(() => this.setState({ loading: false }));
     }
-    
+
     render() {
         if (this.state.loading) return <LinearProgress />
         return (
